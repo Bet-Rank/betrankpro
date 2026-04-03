@@ -167,7 +167,8 @@
 
 <script>
     const games = [
-        // CRASH GAMES — real Cloudinary images
+
+        // ── INSTANT & CRASH GAMES (7) ──────────────────────────────────────
         {
             id: 1, cat: 'crash', name: 'Aviator',
             img: 'https://res.cloudinary.com/dqjualbld/image/upload/v1775219217/aviator_l2m2ho.jpg',
@@ -178,7 +179,7 @@
             id: 2, cat: 'crash', name: 'Aero',
             img: 'https://res.cloudinary.com/dqjualbld/image/upload/v1775219304/aero_s6qmfs.jpg',
             desc: 'High-octane aero-themed crash game. Experience smooth gameplay and rapid multipliers as you soar through the clouds.',
-            how: '1. Select stake.\n2. Watch the Aero altitude.\n3. Collect winnings before the flight ends.'
+            how: '1. Select stake.\n2. Watch the Aero altitude climb.\n3. Collect winnings before the flight ends.'
         },
         {
             id: 3, cat: 'crash', name: 'Football Manager',
@@ -187,50 +188,110 @@
             how: '1. Choose your betting market.\n2. Start the match instantly.\n3. Score goals to increase your payout.'
         },
         {
-            id: 7, cat: 'crash', name: 'Cricket X',
-            img: 'https://placehold.co/300x200/1a2a1a/ffcc00?text=Cricket+X',
+            id: 4, cat: 'crash', name: 'Cricket X',
+            img: 'https://res.cloudinary.com/dqjualbld/image/upload/v1775219548/cricket_x_w5czst.jpg',
             desc: 'Cricket-themed multiplier crash game. Watch the ball soar and cash out at the right moment to win big!',
             how: '1. Place your bet.\n2. Watch the cricket ball multiplier rise.\n3. Cash out before it gets bowled out.'
         },
-
-        // FISHING GAMES — real Cloudinary images
         {
-            id: 4, cat: 'fishing', name: 'Dinosaur Tycoon',
+            id: 5, cat: 'crash', name: 'JetX',
+            img: 'https://res.cloudinary.com/dqjualbld/image/upload/v1775219304/jetx_dfb3jy.jpg',
+            desc: 'A supersonic crash game where a jet climbs to incredible multipliers. React fast and eject before the jet explodes!',
+            how: '1. Place your bet before takeoff.\n2. Watch the jet climb with the multiplier.\n3. Hit Eject to cash out before the explosion.'
+        },
+        {
+            id: 6, cat: 'crash', name: 'Goal',
+            img: 'https://res.cloudinary.com/dqjualbld/image/upload/v1775219304/goal_rxh5z8.jpg',
+            desc: 'Pick your way through a football field of doors and multiply your winnings. How far can you go without missing?',
+            how: '1. Choose difficulty (number of goalkeepers).\n2. Pick a door each round.\n3. Cash out anytime or keep going for bigger multipliers.'
+        },
+        {
+            id: 7, cat: 'crash', name: 'Magnify Man',
+            img: 'https://res.cloudinary.com/dqjualbld/image/upload/v1775219305/magnify_man_pr81fn.jpg',
+            desc: 'A unique zoom-based crash game. Watch Magnify Man grow bigger and bigger — cash out before he pops!',
+            how: '1. Set your bet amount.\n2. Watch the multiplier zoom up.\n3. Click Collect before Magnify Man disappears.'
+        },
+
+        // ── FISHING ARCADE (5) ────────────────────────────────────────────
+        {
+            id: 8, cat: 'fishing', name: 'Dinosaur Tycoon',
             img: 'https://res.cloudinary.com/dqjualbld/image/upload/v1775219304/dinosaur_tyconn_qy37gj.jpg',
             desc: 'Step into a prehistoric world. Hunt massive dinosaurs with powerful weapons to unlock hidden treasures.',
             how: '1. Aim at the dinosaurs.\n2. Use special ammo for larger beasts.\n3. Take down the Golden T-Rex for the jackpot.'
         },
         {
-            id: 5, cat: 'fishing', name: 'Dragon Fortune',
+            id: 9, cat: 'fishing', name: 'Dragon Fortune',
             img: 'https://res.cloudinary.com/dqjualbld/image/upload/v1775219304/dragon_fortune_jjql4y.jpg',
             desc: 'A mythical hunting game where dragons guard ancient gold. Use high-powered cannons to claim your fortune.',
             how: '1. Choose your target dragon.\n2. Blast through dragon eggs for bonuses.\n3. Slay the Boss Dragon for the ultimate multiplier.'
         },
         {
-            id: 8, cat: 'fishing', name: 'Happy Fishing',
-            img: 'https://placehold.co/300x200/0a1a2a/ffcc00?text=Happy+Fishing',
-            desc: 'Popular underwater shooter packed with colorful sea creatures and massive jackpot fish.',
+            id: 10, cat: 'fishing', name: 'Happy Fishing',
+            img: 'https://res.cloudinary.com/dqjualbld/image/upload/v1775219304/happy_fishing_sy7xrw.jpg',
+            desc: 'Popular underwater shooter packed with colorful sea creatures and massive jackpot fish. Fun for everyone!',
             how: '1. Choose your cannon power.\n2. Shoot fish to earn coins.\n3. Use lock-on skill for big targets.'
         },
-
-        // TABLE / MINES GAMES — real Cloudinary + fixed placeholders
         {
-            id: 6, cat: 'table', name: 'Andar Bahar',
+            id: 11, cat: 'fishing', name: 'Bombing Fishing',
+            img: 'https://res.cloudinary.com/dqjualbld/image/upload/v1775219304/bombing_fishing_nlylzd.jpg',
+            desc: 'Explosive underwater action! Drop bombs to catch multiple fish at once and rack up huge rewards.',
+            how: '1. Aim your bomb at a school of fish.\n2. Detonate for a chain reaction catch.\n3. Target the rare giant fish for maximum payout.'
+        },
+        {
+            id: 12, cat: 'fishing', name: 'Mega Fishing',
+            img: 'https://res.cloudinary.com/dqjualbld/image/upload/v1775219305/mega_fishing_krysf9.jpg',
+            desc: 'Go big or go home! Mega Fishing features enormous sea creatures worth massive multipliers. Hunt the legendary fish!',
+            how: '1. Select your bet level.\n2. Fire cannons at sea creatures.\n3. Land the Mega Prize Fish for the ultimate jackpot.'
+        },
+
+        // ── MINES & TABLE MINI (8) ────────────────────────────────────────
+        {
+            id: 13, cat: 'table', name: 'Andar Bahar',
             img: 'https://res.cloudinary.com/dqjualbld/image/upload/v1775219304/andar_bahar_nb1uuj.jpg',
             desc: 'The traditional South Asian card game optimized for instant play. Fast, fair, and incredibly exciting.',
             how: '1. Predict which side (Andar or Bahar) will match the Joker card.\n2. Place your bet.\n3. Win instantly when the card appears.'
         },
         {
-            id: 9, cat: 'table', name: 'Mines',
-            img: 'https://placehold.co/300x200/1a0a2a/ffcc00?text=Mines',
+            id: 14, cat: 'table', name: 'Mines',
+            img: 'https://res.cloudinary.com/dqjualbld/image/upload/v1775219305/mines_jbysxm.jpg',
             desc: 'Avoid bombs, find diamonds. The more tiles you reveal safely, the higher your multiplier grows.',
             how: '1. Set the number of mines.\n2. Click tiles to reveal stars.\n3. Cash out before hitting a mine.'
         },
         {
-            id: 10, cat: 'table', name: 'Plinko',
-            img: 'https://placehold.co/300x200/2a1a0a/ffcc00?text=Plinko',
+            id: 15, cat: 'table', name: 'Plinko',
+            img: 'https://res.cloudinary.com/dqjualbld/image/upload/v1775219306/plinko_yre9k9.jpg',
             desc: 'Classic ball drop physics game. Watch the ball bounce through pegs and land on a multiplier slot.',
-            how: '1. Select your risk level.\n2. Drop the ball from the top.\n3. Win based on which slot the ball lands in.'
+            how: '1. Select your risk level.\n2. Drop the ball from the top.\n3. Win based on which multiplier slot the ball lands in.'
+        },
+        {
+            id: 16, cat: 'table', name: 'HiLo',
+            img: 'https://res.cloudinary.com/dqjualbld/image/upload/v1775219304/hilo_onezdc.jpg',
+            desc: 'Simple yet thrilling card prediction game. Guess whether the next card will be Higher or Lower and stack up winnings!',
+            how: '1. A card is revealed.\n2. Predict if the next card is Higher or Lower.\n3. Keep going to multiply or cash out anytime.'
+        },
+        {
+            id: 17, cat: 'table', name: 'Coin Flip',
+            img: 'https://res.cloudinary.com/dqjualbld/image/upload/v1775219304/coin_flip_wi0f5r.jpg',
+            desc: 'The ultimate 50/50 game. Flip the coin, pick your side, and double your money in seconds!',
+            how: '1. Choose Heads or Tails.\n2. Place your bet.\n3. Win instantly if the coin lands on your side.'
+        },
+        {
+            id: 18, cat: 'table', name: 'Jhandi Munda',
+            img: 'https://res.cloudinary.com/dqjualbld/image/upload/v1775219305/jhandi_mund_hesfbl.jpg',
+            desc: 'The beloved South Asian dice game now online! Bet on symbols and watch the six dice tumble for big wins.',
+            how: '1. Pick one or more symbols to bet on.\n2. The dealer rolls six dice.\n3. Win based on how many dice show your symbol.'
+        },
+        {
+            id: 19, cat: 'table', name: 'Keno',
+            img: 'https://res.cloudinary.com/dqjualbld/image/upload/v1775219305/keno_k5oxte.jpg',
+            desc: 'Pick your lucky numbers and watch the draw! The more numbers you match, the bigger your payout.',
+            how: '1. Select up to 10 numbers from the grid.\n2. Place your bet and start the draw.\n3. Match as many numbers as possible to win.'
+        },
+        {
+            id: 20, cat: 'table', name: 'Tower',
+            img: 'https://res.cloudinary.com/dqjualbld/image/upload/v1775219306/tower_svbtnq.jpg',
+            desc: 'Climb the tower of risk! Each level you clear multiplies your winnings. How high can you go before it falls?',
+            how: '1. Choose your difficulty level.\n2. Select the safe tile on each floor.\n3. Cash out anytime or climb higher for bigger rewards.'
         }
     ];
 
