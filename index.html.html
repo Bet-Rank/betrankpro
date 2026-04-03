@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Baji Games Master Pro</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary: #004d40; --accent: #ffcc00; --dark: #0a0a0a; --glass: rgba(255, 255, 255, 0.1);
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif; background: #0f2027; background: linear-gradient(135deg, #0f2027, #203a43);
+            color: #fff; margin: 0; padding: 0; overflow-x: hidden;
+        }
+
+        /* --- Header --- */
+        header {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 15px 5%; background: rgba(0,0,0,0.8); backdrop-filter: blur(10px);
+            position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid var(--glass);
+        }
+
+        .logo { font-size: 1.5rem; font-weight: 700; color: var(--accent); letter-spacing: 1px; }
+
+        .btn-auth {
+            background: var(--accent); color: #000; padding: 8px 20px; border-radius: 50px;
+            text-decoration: none; font-weight: 700; transition: 0.3s;
+        }
+
+        /* --- Hero & Payments --- */
+        .hero { text-align: center; padding: 30px 5%; }
+        
+        .payment-strip {
+            display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin: 20px 0;
+        }
+
+        .pay-card {
+            background: var(--glass); padding: 10px 15px; border-radius: 12px;
+            display: flex; align-items: center; gap: 10px; border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .pay-card img { width: 30px; height: 30px; object-fit: contain; border-radius: 5px; }
+
+        .links-section {
+            background: rgba(0,0,0,0.3); padding: 20px; border-radius: 20px;
+            max-width: 500px; margin: 20px auto; border: 1px solid var(--glass);
+        }
+
+        .link-item { margin-bottom: 15px; }
+        .link-label { font-size: 0.8rem; color: #aaa; display: block; margin-bottom: 5px; }
+        .link-value { 
+            background: #000; padding: 10px; border-radius: 8px; font-family: monospace; 
+            border: 1px solid var(--accent); color: var(--accent); font-size: 0.9rem;
+        }
+
+        /* --- Game Grid --- */
+        .category-label {
+            padding: 0 5%; margin-top: 40px; color: var(--accent); 
+            text-transform: uppercase; letter-spacing: 2px; font-size: 1.1rem;
+        }
+
+        .game-grid {
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 20px; padding: 20px 5% 50px;
+        }
+
+        .game-card {
+            background: var(--glass); border-radius: 15px; overflow: hidden;
+            cursor: pointer; transition: 0.3s; border: 1px solid transparent;
+        }
+
+        .game-card:hover { transform: scale(1.05); border-color: var(--accent); box-shadow: 0 0 20px rgba(255,204,0,0.2); }
+
+        .game-card img { width: 100%; height: 160px; object-fit: cover; background: #1a1a1a; }
+
+        .game-info { padding: 12px; text-align: center; font-weight: 600; font-size: 0.9rem; background: rgba(0,0,0,0.4); }
+
+        /* --- Modal --- */
+        .modal {
+            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.95); z-index: 2000; justify-content: center; align-items: center;
+        }
+
+        .modal-content {
+            background: #161616; width: 90%; max-width: 550px; border-radius: 20px;
+            padding: 30px; border: 1px solid var(--accent); position: relative;
+        }
+
+        .close-btn { position: absolute; top: 15px; right: 20px; font-size: 2rem; cursor: pointer; color: var(--accent); }
+
+        .play-now {
+            display: block; width: 100%; padding: 15px; background: var(--accent);
+            color: #000; text-align: center; text-decoration: none; font-weight: 800;
+            border-radius: 10px; margin-top: 20px; text-transform: uppercase;
+        }
+
+        @media (max-width: 500px) { .game-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; } }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo">BAJI GAMES</div>
+    <a href="YOUR_AFFILIATE_LINK" class="btn-auth">Sign Up</a>
+</header>
+
+<div class="hero">
+    <h1>Premier Gaming Hub</h1>
+    <p>Easy Withdrawals | 24/7 Support</p>
+
+    <div class="payment-strip">
+        <div class="pay-card"><img src="https://via.placeholder.com/50/007a33/ffffff?text=EP" alt="EasyPaisa"> EasyPaisa</div>
+        <div class="pay-card"><img src="https://via.placeholder.com/50/ff0000/ffffff?text=JC" alt="JazzCash"> JazzCash</div>
+        <div class="pay-card"><img src="https://via.placeholder.com/50/004d40/ffffff?text=BK" alt="Bank"> Bank Transfer</div>
+        <div class="pay-card"><img src="https://via.placeholder.com/50/f7931a/ffffff?text=CR" alt="Crypto"> Crypto / USDT</div>
+    </div>
+
+    <div class="links-section">
+        <div class="link-item">
+            <span class="link-label">Your Referral Link:</span>
+            <div class="link-value">ref_link_12345</div>
+        </div>
+        <div class="link-item">
+            <span class="link-label">Your Affiliate Link:</span>
+            <div class="link-value">aff_link_67890</div>
+        </div>
+    </div>
+</div>
+
+<div class="category-label">Instant & Crash Games</div>
+<div class="game-grid" id="crash-grid"></div>
+
+<div class="category-label">Fishing Arcade</div>
+<div class="game-grid" id="fishing-grid"></div>
+
+<div class="category-label">Mines & Table Mini</div>
+<div class="game-grid" id="table-grid"></div>
+
+<div id="gameModal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal()">&times;</span>
+        <h2 id="m-title" style="margin-top:0; color:var(--accent)">Game Name</h2>
+        <p id="m-desc" style="color:#ccc; font-size:0.95rem"></p>
+        <div id="m-howto" style="background:#222; padding:15px; border-radius:10px; font-size:0.85rem">
+            <strong>How to Play:</strong><br><span id="m-steps"></span>
+        </div>
+        <a href="YOUR_AFFILIATE_LINK" class="play-now">Start Playing Now</a>
+    </div>
+</div>
+
+<script>
+    const games = [
+        // CRASH GAMES
+        { id: 1, cat: 'crash', name: 'Aviator', img: 'PLACEHOLDER', desc: 'The world-famous social crash game. Watch the plane fly and the multiplier grow.', how: '1. Place bet. 2. Watch multiplier. 3. Cash out before plane flies away.' },
+        { id: 2, cat: 'crash', name: 'Cricket X', img: 'PLACEHOLDER', desc: 'A cricket-themed multiplier game. How high can the ball go?', how: '1. Bet on the hit. 2. Monitor the ball flight. 3. Cash out before it bursts.' },
+        { id: 3, cat: 'crash', name: 'JetX', img: 'PLACEHOLDER', desc: 'Classic arcade rocket crash game with progressive jackpots.', how: '1. Place one or two bets. 2. Watch rocket rise. 3. Eject before explosion.' },
+        { id: 4, cat: 'crash', name: 'Aero', img: 'PLACEHOLDER', desc: 'Modern aero-themed crash with high-speed multipliers.', how: '1. Select stake. 2. Watch altitude increase. 3. Collect winnings instantly.' },
+        { id: 5, cat: 'crash', name: 'Magnify Man', img: 'PLACEHOLDER', desc: 'A superhero themed crash game with a comic aesthetic.', how: '1. Bet on the flight. 2. Superhero flies higher. 3. Cash out before he disappears.' },
+        { id: 6, cat: 'crash', name: 'Football Manager', img: 'PLACEHOLDER', desc: 'Instant sports betting simulation for football fans.', how: '1. Choose your market. 2. Results are generated instantly. 3. Collect goal bonuses.' },
+        
+        // FISHING GAMES
+        { id: 7, cat: 'fishing', name: 'Happy Fishing', img: 'PLACEHOLDER', desc: 'Underwater shooting adventure with massive prize fish.', how: '1. Select bullet power. 2. Shoot sea creatures. 3. Kill Boss fish for big wins.' },
+        { id: 8, cat: 'fishing', name: 'Dinosaur Tycoon', img: 'PLACEHOLDER', desc: 'Hunt prehistoric beasts with high-powered weaponry.', how: '1. Aim at dinosaurs. 2. Collect gold for every kill. 3. Hunt the Golden T-Rex.' },
+        { id: 9, cat: 'fishing', name: 'Mega Fishing', img: 'PLACEHOLDER', desc: 'JDB’s premium fishing game with special weapon drops.', how: '1. Use standard fire. 2. Collect special torpedoes. 3. Clear the screen for jackpot.' },
+        { id: 10, cat: 'fishing', name: 'Bombing Fishing', img: 'PLACEHOLDER', desc: 'Explosive fishing action with screen-clearing bombs.', how: '1. Target groups of fish. 2. Deploy bombs for area damage. 3. High multiplier returns.' },
+        { id: 11, cat: 'fishing', name: 'Dragon Fortune', img: 'PLACEHOLDER', desc: 'Battle mythical dragons for ancient treasures.', how: '1. Shoot the dragons. 2. Break dragon eggs for random bonuses. 3. Slay the Fire Dragon.' },
+
+        // MINES & TABLE
+        { id: 12, cat: 'table', name: 'Mines', img: 'PLACEHOLDER', desc: 'A high-stakes grid game of diamonds and bombs.', how: '1. Pick number of mines. 2. Reveal diamonds. 3. Cash out any time before a bomb hit.' },
+        { id: 13, cat: 'table', name: 'Plinko', img: 'PLACEHOLDER', desc: 'The legendary ball-drop game with varying risk levels.', how: '1. Set risk level. 2. Drop the ball. 3. Multiplier is based on the landing slot.' },
+        { id: 14, cat: 'table', name: 'Goal', img: 'PLACEHOLDER', desc: 'Move the football across the field to score multipliers.', how: '1. Pick a tile in each row. 2. Avoid the goalie. 3. Progress further for higher wins.' },
+        { id: 15, cat: 'table', name: 'Jhandi Munda', img: 'PLACEHOLDER', desc: 'Traditional local dice game with modern graphics.', how: '1. Bet on your symbols. 2. Roll 6 dice. 3. Win based on matching symbols.' },
+        { id: 16, cat: 'table', name: 'Andar Bahar', img: 'PLACEHOLDER', desc: 'The classic Indian card game, played at light speed.', how: '1. Bet Andar or Bahar. 2. Match the Joker card. 3. Instant payouts.' },
+        { id: 17, cat: 'table', name: 'HiLo', img: 'PLACEHOLDER', desc: 'Predict if the next card is higher or lower.', how: '1. See the face card. 2. Guess High or Low. 3. Accumulate wins for a massive streak.' },
+        { id: 18, cat: 'table', name: 'Coin Flip', img: 'PLACEHOLDER', desc: 'The ultimate 50/50 game for quick doubling.', how: '1. Pick Heads or Tails. 2. Flip the coin. 3. Win 1.9x your stake instantly.' },
+        { id: 19, cat: 'table', name: 'Keno', img: 'PLACEHOLDER', desc: 'Instant lottery draw every few seconds.', how: '1. Pick your lucky numbers. 2. Watch the draw. 3. The more matches, the bigger the win.' },
+        { id: 20, cat: 'table', name: 'Tower', img: 'PLACEHOLDER', desc: 'Climb the tower level by level for extreme prizes.', how: '1. Choose a path on the level. 2. Avoid the trap. 3. Reach the top for the jackpot.' }
+    ];
+
+    function loadGames() {
+        games.forEach(game => {
+            const card = document.createElement('div');
+            card.className = 'game-card';
+            card.onclick = () => openModal(game.name, game.desc, game.how);
+            card.innerHTML = `
+                <img src="${game.img}" alt="${game.name}">
+                <div class="game-info">${game.name}</div>
+            `;
+            document.getElementById(`${game.cat}-grid`).appendChild(card);
+        });
+    }
+
+    function openModal(name, desc, how) {
+        document.getElementById('m-title').innerText = name;
+        document.getElementById('m-desc').innerText = desc;
+        document.getElementById('m-steps').innerText = how;
+        document.getElementById('gameModal').style.display = 'flex';
+    }
+
+    function closeModal() { document.getElementById('gameModal').style.display = 'none'; }
+    window.onclick = e => { if(e.target == document.getElementById('gameModal')) closeModal(); }
+
+    window.onload = loadGames;
+</script>
+
+</body>
+</html>
