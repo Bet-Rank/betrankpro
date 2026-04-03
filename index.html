@@ -6,119 +6,67 @@
     <title>Baji Games Master Pro</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
     <style>
-        :root {
-            --primary: #004d40; --accent: #ffcc00; --dark: #0a0a0a; --glass: rgba(255, 255, 255, 0.1);
-        }
+        :root { --accent: #ffcc00; --glass: rgba(255,255,255,0.1); }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Poppins', sans-serif; background: linear-gradient(135deg, #0f2027, #203a43); color: #fff; overflow-x: hidden; }
 
-        body {
-            font-family: 'Poppins', sans-serif; background: #0f2027; background: linear-gradient(135deg, #0f2027, #203a43);
-            color: #fff; margin: 0; padding: 0; overflow-x: hidden;
-        }
-
-        /* --- Header --- */
-        header {
-            display: flex; justify-content: space-between; align-items: center;
-            padding: 15px 5%; background: rgba(0,0,0,0.8); backdrop-filter: blur(10px);
-            position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid var(--glass);
-        }
-
+        /* HEADER */
+        header { display: flex; justify-content: space-between; align-items: center; padding: 15px 5%; background: rgba(0,0,0,0.85); backdrop-filter: blur(10px); position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid var(--glass); }
         .logo { font-size: 1.5rem; font-weight: 700; color: var(--accent); letter-spacing: 1px; }
+        .btn-auth { background: var(--accent); color: #000; padding: 8px 25px; border-radius: 50px; text-decoration: none; font-weight: 700; transition: 0.3s; box-shadow: 0 4px 15px rgba(255,204,0,0.3); }
+        .btn-auth:hover { transform: scale(1.05); }
 
-        .btn-auth {
-            background: var(--accent); color: #000; padding: 8px 25px; border-radius: 50px;
-            text-decoration: none; font-weight: 700; transition: 0.3s; box-shadow: 0 4px 15px rgba(255, 204, 0, 0.3);
+        /* HERO */
+        .hero { text-align: center; padding: 40px 5% 20px; }
+        .hero h1 { font-size: 2.2rem; font-weight: 700; margin-bottom: 8px; }
+        .hero p { color: #aaa; font-size: 1rem; margin-bottom: 25px; }
+
+        /* PAYMENT ICONS */
+        .payment-strip { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin: 20px 0; }
+        .pay-card { background: var(--glass); padding: 12px 18px; border-radius: 14px; display: flex; align-items: center; gap: 12px; border: 1px solid rgba(255,255,255,0.08); font-size: 0.9rem; font-weight: 600; }
+        .pay-card img { width: 36px; height: 36px; object-fit: contain; border-radius: 6px; }
+
+        /* LINKS SECTION */
+        .links-section { background: rgba(0,0,0,0.3); padding: 20px; border-radius: 20px; max-width: 500px; margin: 20px auto; border: 1px solid var(--glass); }
+        .link-item { margin-bottom: 12px; }
+        .link-label { font-size: 0.78rem; color: #aaa; display: block; margin-bottom: 5px; }
+        .link-value { background: #000; padding: 10px; border-radius: 8px; font-family: monospace; border: 1px solid var(--accent); color: var(--accent); font-size: 0.85rem; word-break: break-all; display: block; text-decoration: none; }
+        .link-item:last-child { margin-bottom: 0; }
+
+        /* VISIT SITE BUTTON */
+        .visit-btn { display: inline-block; margin: 18px auto 10px; background: var(--accent); color: #000; font-weight: 800; padding: 14px 40px; border-radius: 50px; text-decoration: none; font-size: 1rem; letter-spacing: 1px; text-transform: uppercase; box-shadow: 0 6px 20px rgba(255,204,0,0.35); transition: 0.3s; }
+        .visit-btn:hover { transform: scale(1.05); box-shadow: 0 8px 28px rgba(255,204,0,0.5); }
+        .visit-btn-wrap { text-align: center; padding-bottom: 10px; }
+
+        /* CATEGORY */
+        .category-label { padding: 0; margin: 40px 5% 0; color: var(--accent); text-transform: uppercase; letter-spacing: 2px; font-size: 1.05rem; font-weight: 700; border-left: 4px solid var(--accent); padding-left: 14px; }
+
+        /* GAME GRID */
+        .game-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 22px; padding: 20px 5% 40px; }
+        .game-card { background: var(--glass); border-radius: 20px; overflow: hidden; cursor: pointer; transition: 0.4s; border: 1px solid rgba(255,255,255,0.1); position: relative; text-decoration: none; color: inherit; display: block; }
+        .game-card:hover { transform: translateY(-10px); border-color: var(--accent); box-shadow: 0 12px 35px rgba(0,0,0,0.5); }
+        .game-card img { width: 100%; height: 195px; object-fit: cover; transition: 0.5s; display: block; }
+        .game-card:hover img { transform: scale(1.08); }
+        .game-info { padding: 13px 15px; text-align: center; font-weight: 600; font-size: 0.95rem; background: linear-gradient(to top, rgba(0,0,0,0.92), transparent); position: absolute; bottom: 0; width: 100%; }
+
+        /* MORE GAMES BUTTON */
+        .more-games-wrap { text-align: center; padding: 10px 0 60px; }
+        .more-games-btn { display: inline-block; background: transparent; border: 2px solid var(--accent); color: var(--accent); font-weight: 700; padding: 12px 38px; border-radius: 50px; text-decoration: none; font-size: 0.95rem; letter-spacing: 1px; text-transform: uppercase; transition: 0.3s; }
+        .more-games-btn:hover { background: var(--accent); color: #000; }
+
+        @media (max-width: 500px) {
+            .game-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+            .game-card img { height: 145px; }
+            .hero h1 { font-size: 1.6rem; }
         }
-
-        /* --- Hero & Payments --- */
-        .hero { text-align: center; padding: 30px 5%; }
-        
-        .payment-strip {
-            display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin: 20px 0;
-        }
-
-        .pay-card {
-            background: var(--glass); padding: 10px 15px; border-radius: 12px;
-            display: flex; align-items: center; gap: 10px; border: 1px solid rgba(255,255,255,0.05);
-            font-size: 0.85rem;
-        }
-
-        .pay-card i { color: var(--accent); font-size: 1.2rem; }
-
-        .links-section {
-            background: rgba(0,0,0,0.3); padding: 20px; border-radius: 20px;
-            max-width: 500px; margin: 20px auto; border: 1px solid var(--glass);
-        }
-
-        .link-item { margin-bottom: 15px; }
-        .link-label { font-size: 0.8rem; color: #aaa; display: block; margin-bottom: 5px; }
-        .link-value { 
-            background: #000; padding: 10px; border-radius: 8px; font-family: monospace; 
-            border: 1px solid var(--accent); color: var(--accent); font-size: 0.9rem;
-            word-break: break-all;
-        }
-
-        /* --- Game Grid --- */
-        .category-label {
-            padding: 0 5%; margin-top: 40px; color: var(--accent); 
-            text-transform: uppercase; letter-spacing: 2px; font-size: 1.1rem;
-            border-left: 4px solid var(--accent); margin-left: 5%;
-        }
-
-        .game-grid {
-            display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 25px; padding: 20px 5% 50px;
-        }
-
-        .game-card {
-            background: var(--glass); border-radius: 20px; overflow: hidden;
-            cursor: pointer; transition: 0.4s; border: 1px solid rgba(255,255,255,0.1);
-            position: relative;
-        }
-
-        .game-card:hover { transform: translateY(-10px); border-color: var(--accent); box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
-
-        .game-card img { width: 100%; height: 200px; object-fit: cover; transition: 0.5s; }
-        .game-card:hover img { transform: scale(1.1); }
-
-        .game-info { 
-            padding: 15px; text-align: center; font-weight: 600; font-size: 1rem; 
-            background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
-            position: absolute; bottom: 0; width: 100%; box-sizing: border-box;
-        }
-
-        /* --- Modal --- */
-        .modal {
-            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.95); z-index: 2000; justify-content: center; align-items: center;
-            backdrop-filter: blur(8px);
-        }
-
-        .modal-content {
-            background: #161616; width: 90%; max-width: 550px; border-radius: 25px;
-            padding: 30px; border: 1px solid var(--accent); position: relative;
-            animation: slideUp 0.3s ease-out;
-        }
-
-        @keyframes slideUp { from { transform: translateY(50px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
-
-        .close-btn { position: absolute; top: 15px; right: 20px; font-size: 2rem; cursor: pointer; color: var(--accent); }
-
-        .play-now {
-            display: block; width: 100%; padding: 18px; background: var(--accent);
-            color: #000; text-align: center; text-decoration: none; font-weight: 800;
-            border-radius: 15px; margin-top: 25px; text-transform: uppercase; letter-spacing: 1px;
-        }
-
-        @media (max-width: 500px) { .game-grid { grid-template-columns: repeat(2, 1fr); gap: 15px; } .game-card img { height: 150px; } }
     </style>
 </head>
 <body>
 
 <header>
     <div class="logo">BAJI GAMES</div>
-    <a href="YOUR_AFFILIATE_LINK" class="btn-auth">Login / Sign Up</a>
+    <a href="https://baji1132.com/af/8qnk1w8k/join" class="btn-auth">Login / Sign Up</a>
 </header>
 
 <div class="hero">
@@ -126,200 +74,83 @@
     <p>Easy Withdrawal | Instant Payouts</p>
 
     <div class="payment-strip">
-        <div class="pay-card"><i class="fas fa-mobile-alt"></i> EasyPaisa</div>
-        <div class="pay-card"><i class="fas fa-wallet"></i> JazzCash</div>
-        <div class="pay-card"><i class="fas fa-university"></i> Bank Transfer</div>
-        <div class="pay-card"><i class="fab fa-bitcoin"></i> Crypto / USDT</div>
+        <div class="pay-card"><img src="https://res.cloudinary.com/dqjualbld/image/upload/v1775256809/Easypaisa-Icon-Vector-300x300_xwjbrd.webp" alt="EasyPaisa"> EasyPaisa</div>
+        <div class="pay-card"><img src="https://res.cloudinary.com/dqjualbld/image/upload/v1775256809/jazzcash_oif9pz.webp" alt="JazzCash"> JazzCash</div>
+        <div class="pay-card"><img src="https://res.cloudinary.com/dqjualbld/image/upload/v1775256809/bank_account_a0eoj8.webp" alt="Bank"> Bank Transfer</div>
+        <div class="pay-card"><img src="https://res.cloudinary.com/dqjualbld/image/upload/v1775256808/crypto_gzxoku.webp" alt="Crypto"> Crypto / USDT</div>
     </div>
 
     <div class="links-section">
         <div class="link-item">
             <span class="link-label">Your Referral Link:</span>
-            <div class="link-value">ref_link_12345</div>
+            <a href="https://baji1132.com/af/8qnk1w8k/join" class="link-value">https://baji1132.com/af/8qnk1w8k/join</a>
         </div>
         <div class="link-item">
             <span class="link-label">Your Affiliate Link:</span>
-            <div class="link-value">aff_link_67890</div>
+            <a href="https://baji1132.com/af/8qnk1w8k/join" class="link-value">https://baji1132.com/af/8qnk1w8k/join</a>
         </div>
+    </div>
+
+    <div class="visit-btn-wrap">
+        <a href="https://baji1132.com/af/8qnk1w8k/join" class="visit-btn">🎮 Visit Site & Play Now</a>
     </div>
 </div>
 
-<div class="category-label">Instant & Crash Games</div>
+<!-- CRASH GAMES -->
+<div class="category-label">Instant &amp; Crash Games</div>
 <div class="game-grid" id="crash-grid"></div>
 
+<!-- FISHING -->
 <div class="category-label">Fishing Arcade</div>
 <div class="game-grid" id="fishing-grid"></div>
 
-<div class="category-label">Mines & Table Mini</div>
+<!-- TABLE / MINES -->
+<div class="category-label">Mines &amp; Table Mini</div>
 <div class="game-grid" id="table-grid"></div>
 
-<div id="gameModal" class="modal">
-    <div class="modal-content">
-        <span class="close-btn" onclick="closeModal()">&times;</span>
-        <h2 id="m-title" style="margin-top:0; color:var(--accent)">Game Name</h2>
-        <p id="m-desc" style="color:#ccc; font-size:1rem; line-height:1.6;"></p>
-        <div id="m-howto" style="background:rgba(255,255,255,0.05); padding:20px; border-radius:15px; font-size:0.9rem; border-left: 3px solid var(--accent);">
-            <strong style="color:var(--accent)">How to Play:</strong><br><span id="m-steps"></span>
-        </div>
-        <a href="YOUR_AFFILIATE_LINK" class="play-now">Play Now & Win</a>
-    </div>
+<div class="more-games-wrap">
+    <a href="https://baji1132.com/af/8qnk1w8k/join" class="more-games-btn">🎯 More Games — Visit Baji</a>
 </div>
 
 <script>
-    const games = [
+const AFFILIATE = 'https://baji1132.com/af/8qnk1w8k/join';
 
-        // ── INSTANT & CRASH GAMES (7) ──────────────────────────────────────
-        {
-            id: 1, cat: 'crash', name: 'Aviator',
-            img: 'https://res.cloudinary.com/dqjualbld/image/upload/v1775219217/aviator_l2m2ho.jpg',
-            desc: 'The world-famous social crash game. Watch the plane fly and the multiplier grow. Cash out before the plane flies away!',
-            how: '1. Place your bet.\n2. Watch the multiplier climb.\n3. Click Cash Out before the plane disappears to win.'
-        },
-        {
-            id: 2, cat: 'crash', name: 'Aero',
-            img: 'https://res.cloudinary.com/dqjualbld/image/upload/v1775219304/aero_s6qmfs.jpg',
-            desc: 'High-octane aero-themed crash game. Experience smooth gameplay and rapid multipliers as you soar through the clouds.',
-            how: '1. Select stake.\n2. Watch the Aero altitude climb.\n3. Collect winnings before the flight ends.'
-        },
-        {
-            id: 3, cat: 'crash', name: 'Football Manager',
-            img: 'https://res.cloudinary.com/dqjualbld/image/upload/v1775219304/football_manager_yv56k1.png',
-            desc: 'The ultimate sports-themed instant win game. Manage your luck and score big multipliers in this football simulation.',
-            how: '1. Choose your betting market.\n2. Start the match instantly.\n3. Score goals to increase your payout.'
-        },
-        {
-            id: 4, cat: 'crash', name: 'Cricket X',
-            img: 'https://res.cloudinary.com/dqjualbld/image/upload/v1775219548/cricket_x_w5czst.jpg',
-            desc: 'Cricket-themed multiplier crash game. Watch the ball soar and cash out at the right moment to win big!',
-            how: '1. Place your bet.\n2. Watch the cricket ball multiplier rise.\n3. Cash out before it gets bowled out.'
-        },
-        {
-            id: 5, cat: 'crash', name: 'JetX',
-            img: 'https://res.cloudinary.com/dqjualbld/image/upload/v1775219304/jetx_dfb3jy.jpg',
-            desc: 'A supersonic crash game where a jet climbs to incredible multipliers. React fast and eject before the jet explodes!',
-            how: '1. Place your bet before takeoff.\n2. Watch the jet climb with the multiplier.\n3. Hit Eject to cash out before the explosion.'
-        },
-        {
-            id: 6, cat: 'crash', name: 'Goal',
-            img: 'https://res.cloudinary.com/dqjualbld/image/upload/v1775219304/goal_rxh5z8.jpg',
-            desc: 'Pick your way through a football field of doors and multiply your winnings. How far can you go without missing?',
-            how: '1. Choose difficulty (number of goalkeepers).\n2. Pick a door each round.\n3. Cash out anytime or keep going for bigger multipliers.'
-        },
-        {
-            id: 7, cat: 'crash', name: 'Magnify Man',
-            img: 'https://res.cloudinary.com/dqjualbld/image/upload/v1775219305/magnify_man_pr81fn.jpg',
-            desc: 'A unique zoom-based crash game. Watch Magnify Man grow bigger and bigger — cash out before he pops!',
-            how: '1. Set your bet amount.\n2. Watch the multiplier zoom up.\n3. Click Collect before Magnify Man disappears.'
-        },
+const games = [
+    // ── CRASH ──
+    { id:1, cat:'crash', name:'Aviator', img:'https://res.cloudinary.com/dqjualbld/image/upload/v1775219217/aviator_l2m2ho.jpg' },
+    { id:2, cat:'crash', name:'Aero', img:'https://res.cloudinary.com/dqjualbld/image/upload/v1775219304/aero_s6qmfs.jpg' },
+    { id:3, cat:'crash', name:'Football Manager', img:'https://res.cloudinary.com/dqjualbld/image/upload/v1775219304/football_manager_yv56k1.png' },
+    { id:4, cat:'crash', name:'Cricket X', img:'https://res.cloudinary.com/dqjualbld/image/upload/v1775219548/cricket_x_w5czst.jpg' },
+    { id:5, cat:'crash', name:'JetX', img:'https://res.cloudinary.com/dqjualbld/image/upload/v1775219304/jetx_dfb3jy.jpg' },
+    { id:6, cat:'crash', name:'Goal', img:'https://res.cloudinary.com/dqjualbld/image/upload/v1775219304/goal_rxh5z8.jpg' },
+    { id:7, cat:'crash', name:'Magnify Man', img:'https://res.cloudinary.com/dqjualbld/image/upload/v1775219305/magnify_man_pr81fn.jpg' },
+    // ── FISHING ──
+    { id:8, cat:'fishing', name:'Dinosaur Tycoon', img:'https://res.cloudinary.com/dqjualbld/image/upload/v1775219304/dinosaur_tyconn_qy37gj.jpg' },
+    { id:9, cat:'fishing', name:'Dragon Fortune', img:'https://res.cloudinary.com/dqjualbld/image/upload/v1775219304/dragon_fortune_jjql4y.jpg' },
+    { id:10, cat:'fishing', name:'Happy Fishing', img:'https://res.cloudinary.com/dqjualbld/image/upload/v1775219304/happy_fishing_sy7xrw.jpg' },
+    { id:11, cat:'fishing', name:'Bombing Fishing', img:'https://res.cloudinary.com/dqjualbld/image/upload/v1775219304/bombing_fishing_nlylzd.jpg' },
+    { id:12, cat:'fishing', name:'Mega Fishing', img:'https://res.cloudinary.com/dqjualbld/image/upload/v1775219305/mega_fishing_krysf9.jpg' },
+    // ── TABLE ──
+    { id:13, cat:'table', name:'Andar Bahar', img:'https://res.cloudinary.com/dqjualbld/image/upload/v1775219304/andar_bahar_nb1uuj.jpg' },
+    { id:14, cat:'table', name:'Mines', img:'https://res.cloudinary.com/dqjualbld/image/upload/v1775219305/mines_jbysxm.jpg' },
+    { id:15, cat:'table', name:'Plinko', img:'https://res.cloudinary.com/dqjualbld/image/upload/v1775219306/plinko_yre9k9.jpg' },
+    { id:16, cat:'table', name:'HiLo', img:'https://res.cloudinary.com/dqjualbld/image/upload/v1775219304/hilo_onezdc.jpg' },
+    { id:17, cat:'table', name:'Coin Flip', img:'https://res.cloudinary.com/dqjualbld/image/upload/v1775219304/coin_flip_wi0f5r.jpg' },
+    { id:18, cat:'table', name:'Jhandi Munda', img:'https://res.cloudinary.com/dqjualbld/image/upload/v1775219305/jhandi_mund_hesfbl.jpg' },
+    { id:19, cat:'table', name:'Keno', img:'https://res.cloudinary.com/dqjualbld/image/upload/v1775219305/keno_k5oxte.jpg' },
+    { id:20, cat:'table', name:'Tower', img:'https://res.cloudinary.com/dqjualbld/image/upload/v1775219306/tower_svbtnq.jpg' },
+];
 
-        // ── FISHING ARCADE (5) ────────────────────────────────────────────
-        {
-            id: 8, cat: 'fishing', name: 'Dinosaur Tycoon',
-            img: 'https://res.cloudinary.com/dqjualbld/image/upload/v1775219304/dinosaur_tyconn_qy37gj.jpg',
-            desc: 'Step into a prehistoric world. Hunt massive dinosaurs with powerful weapons to unlock hidden treasures.',
-            how: '1. Aim at the dinosaurs.\n2. Use special ammo for larger beasts.\n3. Take down the Golden T-Rex for the jackpot.'
-        },
-        {
-            id: 9, cat: 'fishing', name: 'Dragon Fortune',
-            img: 'https://res.cloudinary.com/dqjualbld/image/upload/v1775219304/dragon_fortune_jjql4y.jpg',
-            desc: 'A mythical hunting game where dragons guard ancient gold. Use high-powered cannons to claim your fortune.',
-            how: '1. Choose your target dragon.\n2. Blast through dragon eggs for bonuses.\n3. Slay the Boss Dragon for the ultimate multiplier.'
-        },
-        {
-            id: 10, cat: 'fishing', name: 'Happy Fishing',
-            img: 'https://res.cloudinary.com/dqjualbld/image/upload/v1775219304/happy_fishing_sy7xrw.jpg',
-            desc: 'Popular underwater shooter packed with colorful sea creatures and massive jackpot fish. Fun for everyone!',
-            how: '1. Choose your cannon power.\n2. Shoot fish to earn coins.\n3. Use lock-on skill for big targets.'
-        },
-        {
-            id: 11, cat: 'fishing', name: 'Bombing Fishing',
-            img: 'https://res.cloudinary.com/dqjualbld/image/upload/v1775219304/bombing_fishing_nlylzd.jpg',
-            desc: 'Explosive underwater action! Drop bombs to catch multiple fish at once and rack up huge rewards.',
-            how: '1. Aim your bomb at a school of fish.\n2. Detonate for a chain reaction catch.\n3. Target the rare giant fish for maximum payout.'
-        },
-        {
-            id: 12, cat: 'fishing', name: 'Mega Fishing',
-            img: 'https://res.cloudinary.com/dqjualbld/image/upload/v1775219305/mega_fishing_krysf9.jpg',
-            desc: 'Go big or go home! Mega Fishing features enormous sea creatures worth massive multipliers. Hunt the legendary fish!',
-            how: '1. Select your bet level.\n2. Fire cannons at sea creatures.\n3. Land the Mega Prize Fish for the ultimate jackpot.'
-        },
-
-        // ── MINES & TABLE MINI (8) ────────────────────────────────────────
-        {
-            id: 13, cat: 'table', name: 'Andar Bahar',
-            img: 'https://res.cloudinary.com/dqjualbld/image/upload/v1775219304/andar_bahar_nb1uuj.jpg',
-            desc: 'The traditional South Asian card game optimized for instant play. Fast, fair, and incredibly exciting.',
-            how: '1. Predict which side (Andar or Bahar) will match the Joker card.\n2. Place your bet.\n3. Win instantly when the card appears.'
-        },
-        {
-            id: 14, cat: 'table', name: 'Mines',
-            img: 'https://res.cloudinary.com/dqjualbld/image/upload/v1775219305/mines_jbysxm.jpg',
-            desc: 'Avoid bombs, find diamonds. The more tiles you reveal safely, the higher your multiplier grows.',
-            how: '1. Set the number of mines.\n2. Click tiles to reveal stars.\n3. Cash out before hitting a mine.'
-        },
-        {
-            id: 15, cat: 'table', name: 'Plinko',
-            img: 'https://res.cloudinary.com/dqjualbld/image/upload/v1775219306/plinko_yre9k9.jpg',
-            desc: 'Classic ball drop physics game. Watch the ball bounce through pegs and land on a multiplier slot.',
-            how: '1. Select your risk level.\n2. Drop the ball from the top.\n3. Win based on which multiplier slot the ball lands in.'
-        },
-        {
-            id: 16, cat: 'table', name: 'HiLo',
-            img: 'https://res.cloudinary.com/dqjualbld/image/upload/v1775219304/hilo_onezdc.jpg',
-            desc: 'Simple yet thrilling card prediction game. Guess whether the next card will be Higher or Lower and stack up winnings!',
-            how: '1. A card is revealed.\n2. Predict if the next card is Higher or Lower.\n3. Keep going to multiply or cash out anytime.'
-        },
-        {
-            id: 17, cat: 'table', name: 'Coin Flip',
-            img: 'https://res.cloudinary.com/dqjualbld/image/upload/v1775219304/coin_flip_wi0f5r.jpg',
-            desc: 'The ultimate 50/50 game. Flip the coin, pick your side, and double your money in seconds!',
-            how: '1. Choose Heads or Tails.\n2. Place your bet.\n3. Win instantly if the coin lands on your side.'
-        },
-        {
-            id: 18, cat: 'table', name: 'Jhandi Munda',
-            img: 'https://res.cloudinary.com/dqjualbld/image/upload/v1775219305/jhandi_mund_hesfbl.jpg',
-            desc: 'The beloved South Asian dice game now online! Bet on symbols and watch the six dice tumble for big wins.',
-            how: '1. Pick one or more symbols to bet on.\n2. The dealer rolls six dice.\n3. Win based on how many dice show your symbol.'
-        },
-        {
-            id: 19, cat: 'table', name: 'Keno',
-            img: 'https://res.cloudinary.com/dqjualbld/image/upload/v1775219305/keno_k5oxte.jpg',
-            desc: 'Pick your lucky numbers and watch the draw! The more numbers you match, the bigger your payout.',
-            how: '1. Select up to 10 numbers from the grid.\n2. Place your bet and start the draw.\n3. Match as many numbers as possible to win.'
-        },
-        {
-            id: 20, cat: 'table', name: 'Tower',
-            img: 'https://res.cloudinary.com/dqjualbld/image/upload/v1775219306/tower_svbtnq.jpg',
-            desc: 'Climb the tower of risk! Each level you clear multiplies your winnings. How high can you go before it falls?',
-            how: '1. Choose your difficulty level.\n2. Select the safe tile on each floor.\n3. Cash out anytime or climb higher for bigger rewards.'
-        }
-    ];
-
-    function loadGames() {
-        games.forEach(game => {
-            const card = document.createElement('div');
-            card.className = 'game-card';
-            card.onclick = () => openModal(game.name, game.desc, game.how);
-            card.innerHTML = `
-                <img src="${game.img}" alt="${game.name}" loading="lazy">
-                <div class="game-info">${game.name}</div>
-            `;
-            document.getElementById(`${game.cat}-grid`).appendChild(card);
-        });
-    }
-
-    function openModal(name, desc, how) {
-        document.getElementById('m-title').innerText = name;
-        document.getElementById('m-desc').innerText = desc;
-        document.getElementById('m-steps').innerText = how;
-        document.getElementById('gameModal').style.display = 'flex';
-    }
-
-    function closeModal() { document.getElementById('gameModal').style.display = 'none'; }
-    window.onclick = e => { if (e.target == document.getElementById('gameModal')) closeModal(); }
-
-    window.onload = loadGames;
+function loadGames() {
+    games.forEach(game => {
+        const card = document.createElement('a');
+        card.className = 'game-card';
+        card.href = 'game.html?id=' + game.id;
+        card.innerHTML = `<img src="${game.img}" alt="${game.name}" loading="lazy"><div class="game-info">${game.name}</div>`;
+        document.getElementById(`${game.cat}-grid`).appendChild(card);
+    });
+}
+window.onload = loadGames;
 </script>
-
 </body>
 </html>
